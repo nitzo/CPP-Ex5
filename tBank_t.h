@@ -1,14 +1,16 @@
 #ifndef __TBANK_T_H__
 #define  __TBANK_T_H__
 
+#include "Subject.h"
+
 //An object representing a bank.
 //This object is a singleton and cannot be created more than once per program
-class tBank_t {
+class tBank_t : Subject {
 
 
 public:
 
-	tBank_t& Instance() {return bank};
+	tBank_t& Instance() {return bank;}
 
 private:
 		
