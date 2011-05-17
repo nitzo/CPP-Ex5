@@ -16,7 +16,7 @@ public:
 
 protected:
 
-	Observer() {}
+	Observer(Subject *sbj) {this->sbj = sbj;}
 
 	Subject* sbj;
 
