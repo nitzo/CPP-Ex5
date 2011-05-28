@@ -6,6 +6,7 @@
 
 using namespace std;
 
+//TODO:Discarted Class
 class Observer;
 
 class Subject {

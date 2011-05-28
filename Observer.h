@@ -1,6 +1,7 @@
 #ifndef __OBSERVER_H__
 #define  __OBSERVER_H__
 
+//TODO: why is vector "using" is needed
 #include <vector>
 
 using namespace std;
