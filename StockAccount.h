@@ -2,6 +2,9 @@
 #define __STOCKACCOUNT_H__
 
 #include "AccountImpl.h"
+#include <string>
+
+using namespace std;
 
 //
 //Class Representing an Account that the deposit is allowed to invest in Stock Exchange
@@ -10,20 +13,19 @@ class StockAccount : AccountImpl{
 
 public:
 
-	StockAccount ( float percent, int date, Period period )
-		: AccountImpl( percent, date, period ){}
+	StockAccount ( float percent, int date, Period period );
 	~StockAccount();
 
-	bool Close();
+	bool Close(int currentDate);
 	bool IsManageableByFamilyMember();
 	bool InvestInStockMarket(int sum);
 
-	int GetStockAmount();											//get the amount of investment in the stock market
+	float GetStockAmount();											//get the amount of investment in the stock market
 
 private:
 
 	//Members//
-	int stockAmount;												//amount of investment in the stock market
+	float stockAmount;												//amount of investment in the stock market
 };
 
 #endif

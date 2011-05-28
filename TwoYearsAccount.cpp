@@ -1,5 +1,8 @@
 #include "TwoYearsAccount.h"
 
+TwoYearsAccount::TwoYearsAccount( float percent, int date, Period period )
+	: AccountImpl( 0,percent, date, period ){}
+
 TwoYearsAccount::~TwoYearsAccount()
 {
 	//Do Nothing

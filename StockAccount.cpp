@@ -1,11 +1,20 @@
 #include "StockAccount.h"
 
+StockAccount::StockAccount( float percent, int date, Period period )
+: AccountImpl( 2,percent, date, period ){}
+
 StockAccount::~StockAccount()
 {
 	//Do Nothing
 }
 
-bool StockAccount::Close()
+
+float StockAccount::GetStockAmount()
+{
+	return stockAmount;
+}
+
+bool StockAccount::Close(int currentDate)
 {
 	closed = true;
 	return true;

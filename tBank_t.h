@@ -2,6 +2,9 @@
 #define  __TBANK_T_H__
 
 #include "Account.h"
+#include <string>
+
+using namespace std;
 
 //An object representing a bank.
 //This object is a:

@@ -1,7 +1,11 @@
 #include "AccountImpl.h"
+#include <string>
 
-AccountImpl::AccountImpl(float percent, int date, Period period )
+using namespace std;
+
+AccountImpl::AccountImpl(int type,float percent, int date, Period period )
 {
+	this->type = type;
 	this->percent = percent;
 	this->date = date;
 	this->period = period;
@@ -48,13 +52,19 @@ float AccountImpl::withdrawal( int sum )
 		tmp = amount;
 		amount = 0;
 	}else{
-		tmp = sum
+		tmp = (float)sum;
 		amount -= sum;
 	}
 	return tmp;
 }
 
-void AccountImpl::updateMessage( string msg )
+void AccountImpl::Notify( string msg )
 {
 	lastMsg = msg;
+}
+
+int AccountImpl::GetAccountType() const
+{
+	return type;
+
 }

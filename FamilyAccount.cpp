@@ -1,11 +1,14 @@
 #include "FamilyAccount.h"
 
-FamilyAccount::~TwoYearsAccount()
+FamilyAccount::FamilyAccount( float percent, int date, Period period )
+	: AccountImpl( 1,percent, date, period ){}
+
+FamilyAccount::~FamilyAccount()
 {
 	//Do Nothing
 }
 
-bool FamilyAccount::Close()
+bool FamilyAccount::Close(int currentDate)
 {
 	closed = true;
 	return true;
