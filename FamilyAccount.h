@@ -10,7 +10,7 @@ using namespace std;
 //
 //Class Representing an Account that can be managed by all family members ( family accounts )
 //
-class FamilyAccount : AccountImpl{
+class FamilyAccount : public AccountImpl{
 
 public:
 

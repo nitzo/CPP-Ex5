@@ -1,4 +1,5 @@
 #include "Account.h"
+#include "AccountImpl.h"
 #include "TwoYearsAccount.h"
 #include "FamilyAccount.h"
 #include "StockAccount.h"
@@ -46,7 +47,7 @@ ostream & operator<<( ostream &os, Account &acc )
 
 AccountImpl* Account::Factory( Account_Type type, int date, Period period, float PrecentOnDeposite )
 {
-	AccountImpl* account = 0;
+	AccountImpl* account;
 
 	switch (type)
 	{
@@ -103,3 +104,4 @@ void Account::close(int currentDate)
 	result = m_Account->Close(currentDate);
 	m_Account->Notify((result ? "the account were closed" : "the account is unable to close the account"));
 }
+

@@ -21,8 +21,8 @@ void tBank_t::Notify()
 	for (unsigned i = 0; i < m_accounts.size(); i++){
 
 		//TODO: implement condition
-		if(true){
+		/*if(true){
 			(m_accounts[i])->Update(this);
-		}
+		}*/
 	}
 }

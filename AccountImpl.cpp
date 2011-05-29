@@ -13,6 +13,9 @@ AccountImpl::AccountImpl(int type,float percent, int date, Period period )
 	lastMsg = "There is no messages from the bank";
 }
 
+AccountImpl::~AccountImpl(){
+}
+
 float AccountImpl::GetPrecent() const
 {
 	return percent;

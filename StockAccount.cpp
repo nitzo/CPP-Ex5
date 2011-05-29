@@ -35,5 +35,8 @@ bool StockAccount::InvestInStockMarket( int sum )
 		stockAmount += sum;
 		amount -= sum;
 		return true;
-	}	
+	}
+
+	//TODO: What is this?
+	return false;
 }

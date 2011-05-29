@@ -1,5 +1,5 @@
 #ifndef __ACCOUNT_H__
-#define __ACOOUNT_H__
+#define __ACCOUNT_H__
 //TODO: add include
 //#include "tBank_t.h"
 #include "AccountImpl.h"
@@ -8,10 +8,10 @@
 using namespace std;
 
 //ENUM//
-enum Account_Type{																	//enum of the Account types
-	TWOYEARS,			//is allowed to close any time after 2 years
-	FAMILY,				//can be managed by all family members ( family accounts )
-	STOCKEXCHANGE};		//deposit is allowed to invest in Stock Exchange
+typedef enum Account_Type{																	//enum of the Account types
+			TWOYEARS,			//is allowed to close any time after 2 years
+			FAMILY,				//can be managed by all family members ( family accounts )
+			STOCKEXCHANGE};		//deposit is allowed to invest in Stock Exchange
 
 enum Operation{																	//enum of the Account operations 
 	DEPOSIT,			//deposit cash in the account

@@ -9,7 +9,7 @@ using namespace std;
 //
 //Class Representing an Account that the deposit is allowed to invest in Stock Exchange
 //
-class StockAccount : AccountImpl{
+class StockAccount : public AccountImpl{
 
 public:
 

@@ -9,7 +9,7 @@ using namespace std;
 //
 //Class Representing an Account that allowed to close any time after 2 years
 //
-class TwoYearsAccount : AccountImpl{
+class TwoYearsAccount : public AccountImpl{
 
 public:
 

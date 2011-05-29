@@ -2,6 +2,7 @@
 #define  __TBANK_T_H__
 
 #include "Account.h"
+#include <vector>
 #include <string>
 
 using namespace std;
@@ -15,7 +16,7 @@ class tBank_t{
 public:
 	
 	//TODO: is this should be static to?
-	static tBank_t& Instance() {return bank;}			//get reference to the bank instance
+	static tBank_t& Instance() {return m_bank;}			//get reference to the bank instance
 
 	//Subject Methods//
 	void Attach(Account* acc);							//add observer to observer list
@@ -26,13 +27,14 @@ private:
 
 	tBank_t();											//Private CTOR in order to disable instantiation
 	tBank_t(const tBank_t &bank);						//Prevent COPY
-	tBank_t &operator=(tBank_t &bank);					//Prevent COPY
+	tBank_t &operator=(const tBank_t &bank);			//Prevent COPY
 
-	static tBank_t bank;								//Singleton static object
+	static tBank_t m_bank;								//Singleton static object
 
 	//Data Members//
 	vector<Account*> m_accounts;						//observers Vector
 
 };
+
 
 #endif
