@@ -11,6 +11,8 @@ using namespace std;
 //
 class TwoYearsAccount : AccountImpl{
 
+public:
+
 	TwoYearsAccount (float percent, int date, Period period );
 	~TwoYearsAccount();
 

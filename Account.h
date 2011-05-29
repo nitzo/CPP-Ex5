@@ -3,6 +3,9 @@
 //TODO: add include
 //#include "tBank_t.h"
 #include "AccountImpl.h"
+#include <string>
+
+using namespace std;
 
 //ENUM//
 enum Account_Type{																	//enum of the Account types
@@ -23,13 +26,14 @@ enum Operation{																	//enum of the Account operations
 class Account {
 
 public:
-	Account(Account_Type type, int date, Period period, float PrecentOnDeposite);		//CTOR
+	Account(Account_Type type, int date, Period period, float PrecentOnDeposite);	//CTOR
 	~Account();																		//DTOR
 
 	//Observer method
 	void Update(Operation operation, int amount, string msg);						//update the account state
-	string GetAccountStatus();														//report of the current account
+	friend ostream &operator<< (ostream &os, Account &acc);							//report of the current account
 
+	
 private:
 	//Member//
 	AccountImpl* m_Account;															//Instance of the Account Implementation
@@ -43,7 +47,7 @@ private:
 	void depositStock(int amount);													//deposit an investment in the stock market 
 	void notify(string msg);														//notify the account by a massage
 	//Other Operations//
-	void close();																	//close the account
+	void close(int currentDate);													//close the account
 
 };
 

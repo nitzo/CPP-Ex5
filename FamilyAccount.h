@@ -12,6 +12,8 @@ using namespace std;
 //
 class FamilyAccount : AccountImpl{
 
+public:
+
 	FamilyAccount ( float percent, int date, Period period );
 	~FamilyAccount();
 

@@ -33,39 +33,41 @@ void Account::Update( Operation operation, int amount, string msg )
 	}
 }
 
-std::string Account::GetAccountStatus()
+ostream & operator<<( ostream &os, Account &acc )
 {
-	string str;
-
-	//TODO: fix this
-//	str << "Account Type is " << m_Account->GetAccountType() << "(0 - 2 years, 1- family, 2 - stock market)" <<endl
-//		<< "percent on deposit: " << m_Account->GetPrecent() << endl
-//		<< "Year of creation: " << m_Account->GetDate() << endl
-//		<< "Saving period: " << m_Account->GetPeriod() << endl
-//		<< "The bank last massage: " << m_Account->GetLastMsg() << endl
-//		<< "cash amount in the account: " << m_Account->getAmount() << endl
-//		<< "The Account is " << (m_Account->IsClosed() ?  "closed" : "open") << endl;
-	
-	return str;
+	return os << "Account Type is " << acc.m_Account->GetAccountType() << " (0 - 2 years, 1- family, 2 - stock market)" << "\n"
+		<< "percent on deposit: " << acc.m_Account->GetPrecent() << "\n"
+		<< "Year of creation: " <<  acc.m_Account->GetDate() <<  "\n"
+		<< "Saving period: " << acc.m_Account->GetPeriod() << "\n"
+		<< "The bank last massage: " << acc.m_Account->GetLastMsg() << "\n"
+		<< "cash amount in the account: " << acc.m_Account->getAmount() << "\n"
+		<< "The Account is " << (acc.m_Account->IsClosed() ?  "closed" : "open") << "\n";
 }
 
 AccountImpl* Account::Factory( Account_Type type, int date, Period period, float PrecentOnDeposite )
 {
+	AccountImpl* account = 0;
+
 	switch (type)
 	{
 	case TWOYEARS:
-		return new TwoYearsAccount(PrecentOnDeposite,date,period);
+		account = new TwoYearsAccount(PrecentOnDeposite,date,period);
 	case FAMILY:
-		return new FamilyAccount(PrecentOnDeposite,date,period);
+		account = new FamilyAccount(PrecentOnDeposite,date,period);
 	case STOCKEXCHANGE:
-		return new StockAccount(PrecentOnDeposite,date,period);
+		account = new StockAccount(PrecentOnDeposite,date,period);
 	}
+
+	return account;
 }
 
 void Account::deposit( int amount )
 {
 	m_Account->deposit(amount);
-	m_Account->Notify(amount <<" deposit to the account")
+	string str;
+	str += amount;
+	str += " deposit to the account";
+	m_Account->Notify(str);
 }
 
 void Account::withdrawal( int amount )
@@ -73,7 +75,10 @@ void Account::withdrawal( int amount )
 	float result;
 
 	result = m_Account->withdrawal(amount);
-	m_Account->Notify(result << " withdrawal from the account");
+	string str;
+	str += (char) result;
+	str += " withdrawal from the account";
+	m_Account->Notify(str);
 }
 
 void Account::depositStock( int amount )
@@ -81,7 +86,10 @@ void Account::depositStock( int amount )
 	int result;
 
 	result = m_Account->InvestInStockMarket(amount);
-	m_Account->Notify(result << " invested in the stock market");
+	string str;
+	str += (char) result;
+	str += " invested in the stock market";
+	m_Account->Notify(str);
 }
 
 void Account::notify( string msg )
@@ -89,9 +97,9 @@ void Account::notify( string msg )
 	m_Account->Notify(msg);
 }
 
-void Account::close()
+void Account::close(int currentDate)
 {
 	bool result;
-	result = m_Account->Close();
+	result = m_Account->Close(currentDate);
 	m_Account->Notify((result ? "the account were closed" : "the account is unable to close the account"));
 }
