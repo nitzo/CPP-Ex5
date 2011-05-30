@@ -1,7 +1,7 @@
 #include "FamilyAccount.h"
 
-FamilyAccount::FamilyAccount( float percent, int date, Period period )
-	: AccountImpl( 1,percent, date, period ){}
+FamilyAccount::FamilyAccount( float percent, int date, Period period, int id )
+	: AccountImpl( FAMILY,percent, date, period, id ){}
 
 FamilyAccount::~FamilyAccount()
 {

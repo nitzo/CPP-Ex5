@@ -3,16 +3,19 @@
 
 #include <string>
 
+#include "Account.h"
+
+
 using namespace std;
 
-enum Period{THREE=3,SEVEN=7,TEN=10};												//Enum represent the saving period (in years)
+
 
 
 class AccountImpl {
 
 public:
 
-	AccountImpl(int type,float percent, int date, Period period);							//CTOR
+	AccountImpl(Account_Type type,float percent, int date, Period period, int id);	//CTOR
 	virtual ~AccountImpl();															//DTOR
 
 	//Information Methods//
@@ -22,17 +25,18 @@ public:
 	string GetLastMsg() const;														//bank last massage
 	float getAmount() const;														//cash amount in the account
 	bool IsClosed() const;															//Is the current account is closed
-	int GetAccountType() const;											//type of the account
+	int GetAccountType() const;														//type of the account
+	int GetId() const;
 
 	//Operations Methods//
 	void deposit(int sum);															//deposit cash in the account
-	float withdrawal(int sum);														//withdrawal cash from the account
+	float withdraw(int sum);														//withdraw cash from the account
 	void Notify(string msg);														//update the bank last massage
 
 	//Other Operations Methods//
-	virtual bool Close(int currentDate);											//close the account
-	virtual bool IsManageableByFamilyMember();										//Is the Account can be manage by family members
-	virtual bool InvestInStockMarket(int sum);										//deposit an investment in the stock market
+	virtual bool Close(int currentDate) = 0;										//close the account
+	virtual bool IsManageableByFamilyMember() = 0;									//Is the Account can be manage by family members
+	virtual bool InvestInStockMarket(int sum) = 0;									//deposit an investment in the stock market
 
 protected:
 	bool closed;																	//Indicates is he account is closed
@@ -40,9 +44,10 @@ protected:
 	int date;																		//Year of creation 
 
 private:
-
+		
 	//Members//
-	int type;																		//type of the account
+	int id;
+	Account_Type type;																//type of the account
 	float percent;																	//percent on deposit (interest)
 	Period period;																	//Saving period
 	string lastMsg;																	//bank last massage

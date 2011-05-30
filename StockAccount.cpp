@@ -1,7 +1,7 @@
 #include "StockAccount.h"
 
-StockAccount::StockAccount( float percent, int date, Period period )
-: AccountImpl( 2,percent, date, period ){}
+StockAccount::StockAccount( float percent, int date, Period period, int id )
+: AccountImpl( STOCKEXCHANGE,percent, date, period, id ){}
 
 StockAccount::~StockAccount()
 {
@@ -31,12 +31,12 @@ bool StockAccount::InvestInStockMarket( int sum )
 	{
 		stockAmount += amount;
 		amount = 0;
+		
 	}else{
 		stockAmount += sum;
 		amount -= sum;
 		return true;
 	}
-
-	//TODO: What is this?
+	//TODO: What is this??
 	return false;
 }

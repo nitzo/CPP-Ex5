@@ -13,7 +13,7 @@ class TwoYearsAccount : public AccountImpl{
 
 public:
 
-	TwoYearsAccount (float percent, int date, Period period );
+	TwoYearsAccount (float percent, int date, Period period , int id);
 	~TwoYearsAccount();
 
 	bool Close(int currentDate);

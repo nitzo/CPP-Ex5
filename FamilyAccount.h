@@ -14,7 +14,7 @@ class FamilyAccount : public AccountImpl{
 
 public:
 
-	FamilyAccount ( float percent, int date, Period period );
+	FamilyAccount ( float percent, int date, Period period, int id);
 	~FamilyAccount();
 
 	bool Close(int currentDate);

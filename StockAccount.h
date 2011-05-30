@@ -13,7 +13,7 @@ class StockAccount : public AccountImpl{
 
 public:
 
-	StockAccount ( float percent, int date, Period period );
+	StockAccount ( float percent, int date, Period period, int id );
 	~StockAccount();
 
 	bool Close(int currentDate);
