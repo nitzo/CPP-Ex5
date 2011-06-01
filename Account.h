@@ -1,3 +1,8 @@
+//
+// VirtualTau assumption:
+//	1. Implement a Factory method or Factory class is permitted
+//	2. There is no need to implement the exact time of Account creation, indicating only the years is enough.
+//
 #ifndef __ACCOUNT_H__
 #define __ACCOUNT_H__
 

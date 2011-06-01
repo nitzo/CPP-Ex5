@@ -1,3 +1,7 @@
+//
+//VirtualTau Notes:
+// 1. mistake correction: "Bank sends message to all 3 years saving account owners to come to the bank for the meeting with clerk."
+//
 #include "Bank.h"
 #include "Account.h"
 #include <iostream>
